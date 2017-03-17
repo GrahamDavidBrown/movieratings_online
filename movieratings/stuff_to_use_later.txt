@@ -1,0 +1,39 @@
+def load_movies(apps, schema_editor):
+    Movie = apps.get_model("movieratings_app", "Movie")
+    datafile_PATH = 'u.item'
+
+    with open(datafile_PATH, 'r', encoding="latin-1") as f:
+        cats = {'fieldnames': ('movie_id', 'title', 'release_date', 'imdb_link'), delimiter="|"}
+        reader = csv.DictReader(f, **cats)
+        for row in reader:
+            m = Movie(id=row['movie_id'], title=row['title'], release_date=row['release_date'], imdb_link=row['imdb_link'])
+            m.save()
+
+def load_raters(apps, schema_editor):
+    Rater = apps.get_model("movieratings_app", "Rater")
+    datafile_PATH = 'u.user'
+
+    with open(datafile_PATH, 'r', encoding="latin-1") as f:
+        cats = {'fieldnames': ('rater_id', 'age', 'gender', 'occupation', 'zip_code')}
+        reader = csv.DictReader(f, **cats)
+        for row in reader:
+            r = Rater(id=row['rater_id'], age=row['age'], gender=row['gender'], occupation=row['occupation'], zip_code=row['zip_code'])
+            r.save()
+
+
+# do the same for raters and ratings
+# call movie, rater and rating objects in load_ratings()
+# be sure to fill in user id from rater and movie if from movie for load_ratings()
+
+def load_ratings(apps, schema_editor):
+    Rating = apps.get_model("movieratings_app", "Rating")
+    datafile_PATH = 'u.data'
+
+    with open(datafile_PATH, 'r', encoding="latin-1") as f:
+        cats = {'fieldnames': ('rater_id', 'movie_id', 'rating', 'timestamp')}
+        reader = csv.DictReader(f, **cats)
+        rater = row['rater_id']
+        m = row['rater_id']
+        for row in reader:
+            r = Rater(rating=row['rating'], timestamp=row['timestamp'])
+            r.save()
