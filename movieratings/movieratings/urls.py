@@ -16,9 +16,12 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from movieratings_app import views
-
+from django.contrib.auth import views as auth_views
 urlpatterns = [
-    url(r'^movie_detail/', views.movie_detail, name="movie_detail" ),
+    url(r'^accounts/profile/$', views.profile, name='profile'),
+    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'),
+    url(r'^movie_detail/', views.movie_detail, name="movie_detail"),
     url(r'^top_20_movies/', views.top_20_movies, name="top_20_movies"),
     url(r'^admin/', admin.site.urls),
     url(r'^top_5_unseen/', views.top_5_unseen, name="top_5_unseen")

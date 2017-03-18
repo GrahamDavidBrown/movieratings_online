@@ -26,3 +26,7 @@ def top_5_unseen(request):
     top_5_unseen = get_top_5_unseen_movies()
     context = {'top_5_unseen': top_5_unseen}
     return render(request, 'movieratings_app/top_5_unseen', context)
+
+
+def profile(request):
+    pass

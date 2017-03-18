@@ -68,7 +68,7 @@ class Rater(models.Model):
     def recommend_movie(Rater, n):
         """movie recommendation algorithm"""
         all_raters = Rating.objects.all()
-        sim_rater_list = [((get_eucl_distance(Rater, all_raters.pop() for rater in all_raters)))]
+        sim_rater_list = [((Rater.get_eucl_distance((all_raters.pop()) for rater in all_raters)))]
         most_sim_rater_list = sorted(sim_rater_list)[:10]
         return most_sim_rater_list
 
