@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Top 20 Movies</title>
+  </head>
+  <body>
+    <!-- = 20, get top 20 movies via assignment instructions -->
+    <ol>
+    {% for movie in top_20 %}
+        <li>{{ movie }}</li>
+        {% endfor %}
+    </ol>
+  </body>
+</html>
