@@ -17,8 +17,11 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from movieratings_app import views
 from django.contrib.auth import views as auth_views
+
 urlpatterns = [
+    url(r'^accounts/dashboard/$', views.dashboard, name='dashboard'),
     url(r'^accounts/profile/$', views.profile, name='profile'),
+    url(r'^accounts/profile/delete_entry/$', views.delete_entry, name="delete_entry"),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^movie_detail/', views.movie_detail, name="movie_detail"),

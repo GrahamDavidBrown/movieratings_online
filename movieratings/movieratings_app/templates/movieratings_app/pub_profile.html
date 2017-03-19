@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Public Profile</title>
+  </head>
+  <body>
+    <div>
+      <ul> <!--profile header -->
+        <li>{{ username }}</li>
+        <li>{{ first_name}}</li>
+        <li>{{ last_name }}</li>
+      </ul>
+    </div>
+    <div><!-- user ratings list -->
+      <ul>
+        {% for rating in user_ratings %}
+          <li>{{ rating }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>

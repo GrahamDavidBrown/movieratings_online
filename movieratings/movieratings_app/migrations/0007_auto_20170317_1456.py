@@ -22,6 +22,7 @@ def load_ratings(apps, schema_editor):
             r = Rating(rating=row['rating'], timestamp=row['timestamp'], movie=m, rater=rater)
             r.save()
 
+
 class Migration(migrations.Migration):
 
     dependencies = [
